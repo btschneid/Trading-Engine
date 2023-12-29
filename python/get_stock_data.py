@@ -21,7 +21,7 @@ def fetch_and_store_stock_data(symbol, start_date, end_date, database_path='stoc
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS stock_data (
             symbol TEXT,
-            date DATE,
+            date TEXT PRIMARY KEY,
             open REAL,
             high REAL,
             low REAL,

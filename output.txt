@@ -1,0 +1,33 @@
+--------------------------------------------------------------
+  Default Stock Data Information:
+  Stock Symbol: AAPL
+  Start Date: 2018-12-29
+  End Date: 2023-12-28
+--------------------------------------------------------------
+  To keep this default, type 'default'.
+  If you want to change the stock data, type 'change'.
+--------------------------------------------------------------
+[*********************100%%**********************]  1 of 1 completed
+Connected to database
+Simulating AAPL!
+No stock to sell!
+-------------------------------------------------
+History:
+Buy: 48.89
+Sell: 62.06
+Buy: 70.79
+Sell: 119.98
+Buy: 133.00
+Sell: 159.59
+Buy: 170.21
+Sell: 147.11
+Buy: 150.17
+Sell: 151.76
+Buy: 139.50
+Sell: 126.04
+Buy: 144.29
+Sell: 180.19
+Buy: 175.01
+Sell: 193.15
+Gain/Loss: 108.01$ or 10.47%
+-------------------------------------------------
