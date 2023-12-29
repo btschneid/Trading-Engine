@@ -9,8 +9,8 @@
 
 struct SMA {
   double price;
-  double sma20;
-  double sma50;
+  double sma_short;
+  double sma_long;
 
   SMA();
 
@@ -28,10 +28,10 @@ class MovingAverage : public Trader {
     void decideToBuyOrSell();
 
     std::deque<SMA> sma;
-    double sma20_total;
-    int sma20_count;
-    double sma50_total;
-    int sma50_count;
+    double sma_short_total;
+    int sma_short_count;
+    double sma_long_total;
+    int sma_long_count;
 };
 
 #endif // MOVING_AVG_H

@@ -47,12 +47,12 @@ void Trader::setEngine(Engine *eng) {
   engine = eng;
 }
 
-void Trader::print() {
+void Trader::print(std::string type, bool history) {
   for (int i = 0; i < numberStocksOwn; i++) {
     queueUpSell(currentPrice);
   }
   while (numberStocksOwn != 0) {
     std::this_thread::sleep_for(std::chrono::milliseconds(10));
   }
-  portfolio.print(currentPrice, count / 252.0);
+  portfolio.print(currentPrice, count / 252.0, type, history);
 }

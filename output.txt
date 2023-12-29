@@ -7,34 +7,14 @@
   To keep this default, type 'default'.
   If you want to change the stock data, type 'change'.
 --------------------------------------------------------------
-[*********************100%%**********************]  1 of 1 completed
+Enter valid stock symbol (Case Sensitive): Enter start date (YYYY-MM-DD): Enter end date (YYYY-MM-DD): [*********************100%%**********************]  1 of 1 completed
 Connected to database
 Simulating AAPL!
 -------------------------------------------------
-History:
-Buy: 50.39
-Sell: 73.23
-Buy: 73.45
-Sell: 113.02
-Buy: 119.03
-Sell: 121.26
-Buy: 134.84
-Sell: 126.85
-Buy: 134.78
-Sell: 142.65
-Buy: 150.96
-Sell: 174.78
-Buy: 175.06
-Sell: 159.48
-Buy: 153.04
-Sell: 154.48
-Buy: 151.07
-Sell: 144.22
-Buy: 147.81
-Sell: 132.37
-Buy: 154.50
-Sell: 176.57
-Buy: 187.44
-Sell: 193.15
-Yearly Gain/Loss: 21.03%
+Moving Average's History:
+Yearly Gain/Loss: 4.53%
+-------------------------------------------------
+-------------------------------------------------
+Mean Reversion's History:
+Yearly Gain/Loss: 4.39%
 -------------------------------------------------

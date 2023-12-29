@@ -34,7 +34,7 @@ class Portfolio {
 
     int getNumberOfStock();
 
-    void print(double closing, double y);
+    void print(double closing, double y, std::string type, bool history);
 
   private:
     StockInfo info;

@@ -5,11 +5,11 @@ SMA::SMA() {}
 
 SMA::SMA(double p, double twenty, double fifty) {
   price = p;
-  sma20 = twenty;
-  sma50 = fifty;
+  sma_short = twenty;
+  sma_long = fifty;
 }
 
-MovingAverage::MovingAverage() : sma20_total(0), sma20_count(0), sma50_total(0), sma50_count(0) {
+MovingAverage::MovingAverage() : sma_short_total(0), sma_short_count(0), sma_long_total(0), sma_long_count(0) {
 }
 
 void MovingAverage::notify(double newPrice) {
@@ -22,23 +22,23 @@ void MovingAverage::notify(double newPrice) {
 void MovingAverage::updateData(double price) {
   double updateVal = price;
 
-  if (sma20_count >= 20) {
-    sma20_total += updateVal - sma[sma.size() - 20].price;
+  if (sma_short_count >= 20) {
+    sma_short_total += updateVal - sma[sma.size() - 20].price;
   } else {
-    sma20_total += updateVal;
+    sma_short_total += updateVal;
   }
 
-  if (sma50_count >= 50) {
-    sma50_total += updateVal - sma.front().price;
+  if (sma_long_count >= 50) {
+    sma_long_total += updateVal - sma.front().price;
     sma.pop_front();
   } else {
-    sma50_total += updateVal;
+    sma_long_total += updateVal;
   }
 
-  sma20_count += 1;
-  sma50_count += 1;
+  sma_short_count += 1;
+  sma_long_count += 1;
   
-  sma.push_back({updateVal, sma20_total / std::min(sma20_count, 20), sma50_total / std::min(sma50_count, 50)});
+  sma.push_back({updateVal, sma_short_total / std::min(sma_short_count, 20), sma_long_total / std::min(sma_long_count, 50)});
 }
 
 void MovingAverage::decideToBuyOrSell() {
@@ -49,11 +49,11 @@ void MovingAverage::decideToBuyOrSell() {
   // 20 crosses 50 from below buy
   // 20 crosses 50 from above sell
 
-  if ((sma[sma.size() - 2].sma20 < sma[sma.size() - 2].sma50) && 
-  (sma.back().sma20 >= sma.back().sma50)) {
+  if ((sma[sma.size() - 2].sma_short < sma[sma.size() - 2].sma_long) && 
+  (sma.back().sma_short >= sma.back().sma_long)) {
     queueUpBuy(sma.back().price);
-  } else if ((sma[sma.size() - 2].sma20 > sma[sma.size() - 2].sma50) && 
-  (sma.back().sma20 <= sma.back().sma50)) {
+  } else if ((sma[sma.size() - 2].sma_short > sma[sma.size() - 2].sma_long) && 
+  (sma.back().sma_short <= sma.back().sma_long)) {
     queueUpSell(sma.back().price);
   }
 }

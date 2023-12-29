@@ -56,17 +56,19 @@ void Portfolio::removeStock(double price, int quantity) {
   stockHistory.push_back(std::make_pair("Sell", price));
 }
 
-void Portfolio::print(double closing, double y) {
+void Portfolio::print(double closing, double y, std::string type, bool history) {
   double b = 0;
   double s = 0;
   std::cout << "-------------------------------------------------\n";
   info.updateVals(closing);
 
-  std::cout << "History:\n";
+  std::cout << type << "'s History:\n";
   for (const auto& pair : stockHistory) {
     const std::string& action = pair.first;
     const double& stockInfo = pair.second;
-    std::cout << action << ": " << stockInfo << "\n";
+    if (history) {
+      std::cout << action << ": " << stockInfo << "\n";
+    }
     if (action == "Buy") {
       b += stockInfo;
     } else {

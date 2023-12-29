@@ -29,7 +29,7 @@ class Trader {
 
     void setEngine(Engine *eng);
 
-    void print();
+    void print(std::string type, bool history);
     
   private:
     Engine *engine;

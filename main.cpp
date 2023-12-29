@@ -199,20 +199,22 @@ int main() {
   Engine engine;
 
   MovingAverage moving_avg_trader;
-  
-  moving_avg_trader.setEngine(&engine);
-  // MeanReversion mean_reversion_trader;
+  MeanReversion mean_reversion_trader;
   // Breakout brekout_trader;
 
+  moving_avg_trader.setEngine(&engine);
+  mean_reversion_trader.setEngine(&engine);
+
   stock_market.addTrader(&moving_avg_trader);
-  // stock_market.addTrader(&mean_reversion_trader);
+  stock_market.addTrader(&mean_reversion_trader);
   // stock_market.addTrader(&brekout_trader);
 
   std::thread stock_market_thread(&StockMarket::runSimulation, &stock_market);
 
   stock_market_thread.join();
 
-  moving_avg_trader.print();
+  moving_avg_trader.print("Moving Average", false);
+  mean_reversion_trader.print("Mean Reversion", false);
   
   return 0;
 }
