@@ -39,6 +39,7 @@ class Trader {
 
   protected:
     double currentPrice;
+    int count;
 
 
 };

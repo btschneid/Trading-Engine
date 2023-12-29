@@ -14,6 +14,7 @@ Engine::~Engine() {
 void Engine::processBuy(Trader& trader, double price) {
   std::string action = "buy";
   std::unique_lock<std::mutex> lock(requestMutex);
+  //std::cout << action << " " << price << "\n";
   requestQueue.push(std::make_pair(std::ref(trader), std::make_pair(action, price)));
   condition.notify_one();
 }
@@ -21,6 +22,7 @@ void Engine::processBuy(Trader& trader, double price) {
 void Engine::processSell(Trader& trader, double price) {
   std::string action = "sell";
   std::unique_lock<std::mutex> lock(requestMutex);
+  //std::cout << action << " " << price << "\n";
   requestQueue.push(std::make_pair(std::ref(trader), std::make_pair(action, price)));
   condition.notify_one();
 }

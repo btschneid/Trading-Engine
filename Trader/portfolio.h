@@ -6,6 +6,7 @@
 #include <string>
 #include <vector>
 #include <queue>
+#include <cmath>
 
 #include "../Stock-Market/stock_data.h"
 
@@ -33,7 +34,7 @@ class Portfolio {
 
     int getNumberOfStock();
 
-    void print(double closing);
+    void print(double closing, double y);
 
   private:
     StockInfo info;

@@ -56,7 +56,7 @@ void Portfolio::removeStock(double price, int quantity) {
   stockHistory.push_back(std::make_pair("Sell", price));
 }
 
-void Portfolio::print(double closing) {
+void Portfolio::print(double closing, double y) {
   double b = 0;
   double s = 0;
   std::cout << "-------------------------------------------------\n";
@@ -73,8 +73,9 @@ void Portfolio::print(double closing) {
       s += stockInfo;
     }
   }
-
-  std::cout << "Gain/Loss: " << (s - b) << "$ or " << ((s - b) / b) * 100 << "%\n";
+  if (y > 0) {
+    std::cout << "Yearly Gain/Loss: " << (s / b) / y * 100 << "%\n";
+  }
 
   std::cout << "-------------------------------------------------\n";
 }
