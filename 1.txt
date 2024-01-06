@@ -1,1 +1,0 @@
-Stock-Market/stock_market.cpp Trader/trader.cpp Trader/portfolio.cpp Trader/TradingStrats/moving_avg.cpp Trader/TradingStrats/mean_reversion.cpp Trader/TradingStrats/breakout.cpp Trading-Engine/engine.cpp

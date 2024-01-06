@@ -1,4 +1,3 @@
-// main.cpp
 #include <iostream>
 #include <chrono>
 #include <ctime>
@@ -11,7 +10,6 @@
 #include "Stock-Market/stock_market.h"
 #include "Trader/TradingStrats/moving_avg.h"
 #include "Trader/TradingStrats/mean_reversion.h"
-#include "Trader/TradingStrats/breakout.h"
 #include "Trading-Engine/engine.h"
 
 bool getStockData(std::string symbol, std::string start_date, std::string end_date) {
@@ -213,8 +211,8 @@ int main() {
 
   stock_market_thread.join();
 
-  moving_avg_trader.print("Moving Average", false);
-  mean_reversion_trader.print("Mean Reversion", false);
+  moving_avg_trader.print("Moving Average", true);
+  mean_reversion_trader.print("Mean Reversion", true);
   
   return 0;
 }
