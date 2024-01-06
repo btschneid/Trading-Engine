@@ -41,11 +41,3 @@ def fetch_and_store_stock_data(symbol, start_date, end_date, database_path='stoc
     # Commit changes and close the connection
     conn.commit()
     conn.close()
-
-# if __name__ == "__main__":
-#     # Example usage
-#     symbol = 'TSLA'
-#     start_date = '2022-01-01'
-#     end_date = datetime.today().strftime('%Y-%m-%d')  # Use today's date as the end date
-
-#     fetch_and_store_stock_data(symbol, start_date, end_date)

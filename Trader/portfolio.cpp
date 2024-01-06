@@ -42,8 +42,7 @@ void StockInfo::updateVals(double closingPrice) {
   gain_or_loss = market_value - cost_basis;
 }
 
-Portfolio::Portfolio() {
-}
+Portfolio::Portfolio() {}
 
 void Portfolio::addStock(double price, int quantity) {
   info.updateBuy(price, quantity);

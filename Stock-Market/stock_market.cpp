@@ -10,14 +10,11 @@ StockMarket::StockMarket(std::string symbol, std::string start, std::string end)
   setDataBase();
 }
 
-StockMarket::~StockMarket() {
-
-}
-
 void StockMarket::addTrader(Trader *trader) {
   traders.push_back(trader);
 }
 
+// Notify traders of new stock data
 void StockMarket::notifyTraders(double newPrice) {
   for (Trader* trader : traders) {
     trader->notify(newPrice);
@@ -45,7 +42,7 @@ void StockMarket::setDataBase() {
 void StockMarket::connectDataTable() {
   std::cout << std::fixed << std::setprecision(2);
   
-  // Construct the SELECT query based on the provided table name
+  // Construct the SELECT query
   std::string query = "SELECT date, close FROM stock_data;";
 
   rc = sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, 0);
@@ -73,10 +70,7 @@ void StockMarket::getNewStockData() {
       if (i == 1) {
         notifyTraders(std::atof(value));
       }
-      //std::cout << value << "\t";
     }
-    //std::this_thread::sleep_for(std::chrono::milliseconds(500));
-    //std::cout << "\n";
   }
     
 }

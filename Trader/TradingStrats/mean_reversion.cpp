@@ -18,6 +18,7 @@ void MeanReversion::notify(double newPrice) {
 void MeanReversion::updateData(double price) {
   double updateVal = price;
 
+  // Updates moving average of window size
   if (sma_count >= window) {
     sma_total += updateVal - moving_mean.front().price;
     moving_mean.pop_front();
@@ -27,9 +28,11 @@ void MeanReversion::updateData(double price) {
 
   sma_count += 1;
 
+  // Find difference between moving average and current stock closing price
   double sma_val = sma_total / std::min(sma_count, window);
   double diff = updateVal - sma_val;
 
+  // Update signal on if the difference is + or -
   int signal = 1;
   if (diff > 0) {
     signal = -1;
@@ -47,7 +50,6 @@ void MeanReversion::decideToBuyOrSell() {
 
   if (moving_mean[moving_mean.size() - 2].signal != moving_mean.back().signal) {
     if (moving_mean.back().signal == 1) {
-
       queueUpBuy(moving_mean.back().price);
     } else {
       queueUpSell(moving_mean.back().price);

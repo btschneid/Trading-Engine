@@ -11,7 +11,6 @@ void Trader::queueUpBuy(double price) {
 
 void Trader::buy(double price) {
   if (price > balance) {
-    //std::cout << "Not enough money to buy this stock!\n";
     return;
   }
 
@@ -27,7 +26,6 @@ void Trader::queueUpSell(double price) {
 
 void Trader::sell(double price) {
   if (numberStocksOwn <= 0) {
-    //std::cout << "No stock to sell!\n";
     return;
   }
   balance += price;
@@ -54,5 +52,7 @@ void Trader::print(std::string type, bool history) {
   while (numberStocksOwn != 0) {
     std::this_thread::sleep_for(std::chrono::milliseconds(10));
   }
+
+  // Average of 252 trading days per year
   portfolio.print(currentPrice, count / 252.0, type, history);
 }

@@ -12,6 +12,7 @@
 #include "Trader/TradingStrats/mean_reversion.h"
 #include "Trading-Engine/engine.h"
 
+// Calls python function to get stock data into sqlite database
 bool getStockData(std::string symbol, std::string start_date, std::string end_date) {
     const char* symbol_cstr = symbol.c_str();
     const char* start_cstr = start_date.c_str();
@@ -27,11 +28,11 @@ bool getStockData(std::string symbol, std::string start_date, std::string end_da
     Py_XDECREF(pName);
 
     if (pModule != NULL) {
-        // Get a reference to the Python function
+        // Get a reference to the python function
         PyObject* pFunc = PyObject_GetAttrString(pModule, "fetch_and_store_stock_data");
 
         if (pFunc && PyCallable_Check(pFunc)) {
-            // Prepare arguments and call the Python function
+            // Prepare arguments and call the python function
             PyObject* pArgs = PyTuple_Pack(4,
                 PyUnicode_DecodeFSDefault(symbol_cstr),
                 PyUnicode_DecodeFSDefault(start_cstr),
@@ -43,7 +44,6 @@ bool getStockData(std::string symbol, std::string start_date, std::string end_da
             Py_XDECREF(pArgs);
 
             if (pValue != NULL) {
-                // Handle the result if needed
                 Py_XDECREF(pValue);
             } else {
                 PyErr_Print();  // Print error message if the function call failed
@@ -198,19 +198,20 @@ int main() {
 
   MovingAverage moving_avg_trader;
   MeanReversion mean_reversion_trader;
-  // Breakout brekout_trader;
 
+  // Traders subscribing to the trading engine
   moving_avg_trader.setEngine(&engine);
   mean_reversion_trader.setEngine(&engine);
 
+  // Traders subscribing to the stock market to get constant data
   stock_market.addTrader(&moving_avg_trader);
   stock_market.addTrader(&mean_reversion_trader);
-  // stock_market.addTrader(&brekout_trader);
 
+  // Thread for the stock market
   std::thread stock_market_thread(&StockMarket::runSimulation, &stock_market);
-
   stock_market_thread.join();
 
+  // Print trader portfolios
   moving_avg_trader.print("Moving Average", true);
   mean_reversion_trader.print("Mean Reversion", true);
   

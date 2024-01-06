@@ -17,7 +17,6 @@ class StockMarket {
   public:
 
     StockMarket(std::string symbol, std::string start, std::string end);
-    ~StockMarket();
 
     void addTrader(Trader *trader);
     void notifyTraders(double newPrice);

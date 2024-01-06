@@ -9,8 +9,7 @@ SMA::SMA(double p, double twenty, double fifty) {
   sma_long = fifty;
 }
 
-MovingAverage::MovingAverage() : sma_short_total(0), sma_short_count(0), sma_long_total(0), sma_long_count(0) {
-}
+MovingAverage::MovingAverage() : sma_short_total(0), sma_short_count(0), sma_long_total(0), sma_long_count(0) {}
 
 void MovingAverage::notify(double newPrice) {
   currentPrice = newPrice;
@@ -22,12 +21,14 @@ void MovingAverage::notify(double newPrice) {
 void MovingAverage::updateData(double price) {
   double updateVal = price;
 
+  // Get moving average of size 20
   if (sma_short_count >= 20) {
     sma_short_total += updateVal - sma[sma.size() - 20].price;
   } else {
     sma_short_total += updateVal;
   }
 
+  // Get moving average of size 50
   if (sma_long_count >= 50) {
     sma_long_total += updateVal - sma.front().price;
     sma.pop_front();
