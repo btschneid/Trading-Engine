@@ -17,10 +17,6 @@ Follow these steps to use the Trading Engine:
 2. Compile the program by entering `make` in the command line.
 3. Run the executable with `./engine`.
 
-## Author:
-
-Brian Schneider
-
 ## Features:
 
 ### 1. Stock and Time Frame Selection:
@@ -47,6 +43,6 @@ Capable of handling a significant volume of requests per second, making it suita
 
 Ensure that the necessary C++ extensions are installed by checking the `requirements.txt` file. Compile the program with the `make` command and run the executable using `./engine`.
 
-Feel free to explore and contribute to the codebase. If you encounter any issues or have suggestions, please reach out to the author, Brian Schneider.
+## Author:
 
-Happy trading!
+Brian Schneider
