@@ -1,0 +1,26 @@
+# This project depends on SQLite3 for database functionality
+libsqlite3
+
+# The C++ Standard Library
+libstdc++
+
+# The GNU C Library
+libc
+
+# libm is the math library
+libm
+
+# libgcc_s is the GCC support library
+libgcc_s
+
+# ld-linux-x86-64 is the dynamic linker/loader
+ld-linux-x86-64
+
+# To use python with C++
+python3-dev
+
+# If you're using GCC ( as am I ) as your compiler, it's typically installed with the development tools. 
+You might already have it, but if not:
+sudo apt-get install g++
+
+# I am using g++ version: g++ (Ubuntu 11.2.0-19ubuntu1) 11.2.0
