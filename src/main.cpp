@@ -5,12 +5,11 @@
 #include <regex>
 
 #include <Python.h>
-#include "/usr/include/python3.10/pyconfig.h"
 
-#include "Stock-Market/stock_market.h"
-#include "Trader/TradingStrats/moving_avg.h"
-#include "Trader/TradingStrats/mean_reversion.h"
-#include "Trading-Engine/engine.h"
+#include "market/stock_market.h"
+#include "trader/strategies/moving_avg.h"
+#include "trader/strategies/mean_reversion.h"
+#include "core/engine.h"
 
 // Calls python function to get stock data into sqlite database
 bool getStockData(std::string symbol, std::string start_date, std::string end_date) {
@@ -22,7 +21,7 @@ bool getStockData(std::string symbol, std::string start_date, std::string end_da
     Py_Initialize();
 
     // Import the Python module
-    PyRun_SimpleString("import sys\nsys.path.append('./python')");
+    PyRun_SimpleString("import sys\nsys.path.append('./src/python')");
     PyObject* pName = PyUnicode_DecodeFSDefault("get_stock_data");
     PyObject* pModule = PyImport_Import(pName);
     Py_XDECREF(pName);
@@ -37,7 +36,7 @@ bool getStockData(std::string symbol, std::string start_date, std::string end_da
                 PyUnicode_DecodeFSDefault(symbol_cstr),
                 PyUnicode_DecodeFSDefault(start_cstr),
                 PyUnicode_DecodeFSDefault(end_cstr),
-                PyUnicode_DecodeFSDefault("stock_data.db")
+                PyUnicode_DecodeFSDefault("data/stock_data.db")
             );
 
             PyObject* pValue = PyObject_CallObject(pFunc, pArgs);

@@ -1,0 +1,3 @@
+yfinance>=0.2.36
+pandas>=2.0.0  # Required by yfinance
+numpy>=1.24.0  # Required by pandas 

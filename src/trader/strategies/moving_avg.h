@@ -1,5 +1,4 @@
-#ifndef MOVING_AVG_H
-#define MOVING_AVG_H
+#pragma once
 
 #include <iostream>
 #include <deque>
@@ -33,5 +32,3 @@ class MovingAverage : public Trader {
     double sma_long_total;
     int sma_long_count;
 };
-
-#endif // MOVING_AVG_H

@@ -1,5 +1,5 @@
 #include "portfolio.h"
-#include "../Stock-Market/stock_data.h"
+#include "../market/stock_data.h"
 
 StockInfo::StockInfo() : symbol(""), quantity(0), 
 current_stock_price(0), market_value(0), cost_basis(0), 

@@ -1,7 +1,7 @@
 #include "trader.h"
-#include "../Stock-Market/stock_data.h"
+#include "../market/stock_data.h"
 #include "portfolio.h"
-#include "../Trading-Engine/engine.h"
+#include "../core/engine.h"
 
 Trader::Trader() : balance(1000000), numberStocksOwn(0), count(0) {}
 

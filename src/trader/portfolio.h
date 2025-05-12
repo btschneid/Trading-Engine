@@ -1,5 +1,4 @@
-#ifndef PORTFOLIO_H
-#define PORTFOLIO_H
+#pragma once
 
 #include <iostream>
 #include <unordered_map>
@@ -8,7 +7,7 @@
 #include <queue>
 #include <cmath>
 
-#include "../Stock-Market/stock_data.h"
+#include "../market/stock_data.h"
 
 struct StockInfo {
   std::string symbol;
@@ -41,5 +40,3 @@ class Portfolio {
     std::vector<std::pair<std::string, double>> stockHistory;
 
 };
-
-#endif // PORTFOLIO_H

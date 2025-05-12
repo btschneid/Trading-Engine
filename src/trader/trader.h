@@ -1,5 +1,4 @@
-#ifndef TRADER_H
-#define TRADER_H
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -7,7 +6,7 @@
 #include <chrono>
 #include <thread>
 
-#include "../Stock-Market/stock_data.h"
+#include "../market/stock_data.h"
 #include "portfolio.h"
 
 class Engine;
@@ -43,6 +42,3 @@ class Trader {
 
 
 };
-
-
-#endif // TRADER_H

@@ -1,0 +1,14 @@
+# C++ Compiler and Build Tools
+g++>=11.0.0
+cmake>=3.14.0
+make
+
+# Development Libraries
+libsqlite3-dev
+python3-dev
+
+# Standard Libraries
+libstdc++
+libc
+libm
+libgcc_s 

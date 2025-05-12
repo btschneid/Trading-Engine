@@ -1,5 +1,4 @@
-#ifndef STOCK_MARKET_H
-#define STOCK_MARKET_H
+#pragma once
 
 #include <iostream>
 #include <vector>
@@ -10,7 +9,7 @@
 
 #include "sqlite3.h"
 #include "stock_data.h"
-#include "../Trader/trader.h"
+#include "../trader/trader.h"
 
 
 class StockMarket {
@@ -40,5 +39,3 @@ class StockMarket {
     std::string datatable;
     int rc;
 };
-
-#endif // STOCK_MARKET_H

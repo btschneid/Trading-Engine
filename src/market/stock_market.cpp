@@ -1,7 +1,7 @@
 #include "sqlite3.h"
 #include "stock_market.h"
 #include "stock_data.h"
-#include "../Trader/trader.h"
+#include "../trader/trader.h"
 
 StockMarket::StockMarket(std::string symbol, std::string start, std::string end)
 : stock_symbol(symbol), start_date(start), end_date(end), current_date(start) {
@@ -29,7 +29,7 @@ void StockMarket::runSimulation() {
 }
 
 void StockMarket::setDataBase() {
-  rc = sqlite3_open("./stock_data.db", &db);
+  rc = sqlite3_open("./data/stock_data.db", &db);
 
   if (rc) {
     std::cerr << "Cannot open database: " << sqlite3_errmsg(db) << "\n";

@@ -1,5 +1,4 @@
-#ifndef MEAN_REVERSION_H
-#define MEAN_REVERSION_H
+#pragma once
 
 #include <iostream>
 #include "../trader.h"
@@ -30,5 +29,3 @@ class MeanReversion : public Trader {
     int sma_count;
     int window;
 };
-
-#endif // MEAN_REVERSION_H
